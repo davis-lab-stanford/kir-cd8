@@ -1,0 +1,25 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.1.0
+    hooks:
+    -   id: trailing-whitespace
+        exclude: .ipynb
+    -   id: end-of-file-fixer
+        exclude: .ipynb
+    -   id: check-yaml
+    -   id: check-added-large-files
+        args: ['--maxkb=3000']
+        exclude: .ipynb
+    -   id: requirements-txt-fixer
+    -   id: check-merge-conflict
+-   repo: https://github.com/psf/black
+    rev: 21.8b0
+    hooks:
+      - id: black-jupyter
+        language_version: python # Should be a command that runs python3.6+, like python3
+# -   repo: https://github.com/asottile/reorder_python_imports
+#     rev: v2.3.0
+#     hooks:
+#     -   id: reorder-python-imports
